@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PracticalTask115" />
+        <module name="JavaPreProjectTask113 (hbnt)" />
         <module name="PracticalTask113" />
         <module name="PracticalTask115(obsolete)" />
       </profile>

@@ -13,12 +13,13 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    // JDBC
-    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/user?useSSL=false";
+
+    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost:3306/user";
     private static final String LOGIN = "root";
     private static final String PASSWORD = "root";
 
+    // JDBC
     public Connection getConnection() {
         Connection connection = null;
 
@@ -42,10 +43,10 @@ public class Util {
                 Configuration configuration = new Configuration();
 
                 Properties settings = new Properties();
-                settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost/user");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "root");
+                settings.put(Environment.DRIVER, DB_DRIVER);
+                settings.put(Environment.URL, URL);
+                settings.put(Environment.USER, LOGIN);
+                settings.put(Environment.PASS, PASSWORD);
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
