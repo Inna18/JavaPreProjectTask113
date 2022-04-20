@@ -19,8 +19,13 @@ public class Util {
     private static final String LOGIN = "root";
     private static final String PASSWORD = "root";
 
+    private static SessionFactory sessionFactory;
+
+    protected Util() {
+    }
+
     // JDBC
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
 
         try {
@@ -35,7 +40,6 @@ public class Util {
     }
 
     //Hibernate
-    private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
@@ -47,7 +51,7 @@ public class Util {
                 settings.put(Environment.URL, URL);
                 settings.put(Environment.USER, LOGIN);
                 settings.put(Environment.PASS, PASSWORD);
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserDaoHibernateImpl extends Util implements UserDao {
     public UserDaoHibernateImpl() {
-
+        super();
     }
 
 
@@ -56,6 +56,8 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
             System.out.println("User - " + name + " added to DB");
 
             transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -88,7 +90,7 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        String sql = "Truncate table user";
+        String sql = "TRUNCATE TABLE user";
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             Query query = session.createSQLQuery(sql).addEntity(User.class);

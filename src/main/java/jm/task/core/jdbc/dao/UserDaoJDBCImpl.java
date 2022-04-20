@@ -3,14 +3,19 @@ package jm.task.core.jdbc.dao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
-import javax.swing.plaf.nimbus.State;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
 
     public UserDaoJDBCImpl() {
+        super();
 
     }
     @Override
@@ -95,7 +100,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
 
     @Override
     public void cleanUsersTable() {
-        String sql = "Truncate table usertable";
+        String sql = "TRUNCATE TABLE usertable";
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
