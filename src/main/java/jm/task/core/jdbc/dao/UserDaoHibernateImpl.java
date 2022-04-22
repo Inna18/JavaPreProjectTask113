@@ -8,11 +8,9 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class UserDaoHibernateImpl extends Util implements UserDao {
+public class UserDaoHibernateImpl implements UserDao {
     public UserDaoHibernateImpl() {
-        super();
     }
-
 
     @Override
     public void createUsersTable() {

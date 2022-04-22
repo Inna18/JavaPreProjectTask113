@@ -21,7 +21,7 @@ public class Util {
 
     private static SessionFactory sessionFactory;
 
-    protected Util() {
+    private Util() {
     }
 
     // JDBC
@@ -40,7 +40,6 @@ public class Util {
     }
 
     //Hibernate
-
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
